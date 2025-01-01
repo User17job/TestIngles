@@ -34,32 +34,18 @@ const Admin = ({ onBack }) => {
     }
   };
 
-  // const loadQuestions = async () => {
-  //   try {
-  //     const data = await api.getQuestions();
-
-  //     // Accede al nivel correcto de preguntas
-  //     const questionsArray =
-  //       data.questions.flatMap((item) => item.questions || []) || [];
-
-  //     console.log("Preguntas procesadas:", questionsArray);
-
-  //     setQuestions(questionsArray);
-  //   } catch (error) {
-  //     console.error("Error al cargar preguntas:", error);
-  //     showAlert("Error al cargar preguntas");
-  //   }
-  // };
   const loadQuestions = async () => {
     try {
       const data = await api.getQuestions();
-      const questionsArray = data?.questions?.[0]?.questions || [];
+      const questionsArray = data?.questions?.questions[0]?.questions || [];
+      console.log(questionsArray);
       setQuestions(questionsArray);
     } catch (error) {
       console.error("Error al cargar preguntas:", error);
       showAlert("Error al cargar preguntas");
     }
   };
+
   const getDefaultOptions = (type) => {
     switch (type) {
       case "multiple":
@@ -157,30 +143,6 @@ const Admin = ({ onBack }) => {
     });
   };
 
-  // const saveQuestions = async () => {
-  //   if (!validateQuestions()) {
-  //     showAlert("Por favor complete todos los campos requeridos");
-  //     return;
-  //   }
-
-  //   try {
-  //     const formattedQuestions = questions.map((q) => ({
-  //       ...q,
-  //       correct:
-  //         q.type === "boolean"
-  //           ? String(q.correct) // Asegura que sea una cadena
-  //           : q.correct,
-  //     }));
-
-  //     await api.updateQuestions([
-  //       { id: "2816", questions: formattedQuestions },
-  //     ]);
-  //     await loadQuestions();
-  //     showAlert("Cambios guardados exitosamente", "success");
-  //   } catch (error) {
-  //     showAlert("Error al guardar los cambios");
-  //   }
-  // };
   const saveQuestions = async () => {
     if (!validateQuestions()) {
       showAlert("Por favor complete todos los campos requeridos");
@@ -210,6 +172,7 @@ const Admin = ({ onBack }) => {
       showAlert("Error al guardar los cambios: " + error.message);
     }
   };
+
   const renderQuestionFields = (q, index) => {
     switch (q.type) {
       case "fillInBlanks":
@@ -480,6 +443,7 @@ const Admin = ({ onBack }) => {
       )}
     </div>
   );
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6">
       <button

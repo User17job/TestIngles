@@ -16,6 +16,26 @@
               ],
               "correct": "te elijo",
               "points": 5
+            },
+            {
+              "id": "1735770942681",
+              "type": "translate",
+              "question": "como estas?",
+              "options": [],
+              "correct": "como estas?",
+              "points": 5
+            },
+            {
+              "id": "1735771597048",
+              "type": "multiple",
+              "question": "eyeeeneue eueen eebuen dia",
+              "options": [
+                "good mornings",
+                "good",
+                "mornings"
+              ],
+              "correct": "good mornings",
+              "points": 5
             }
           ]
         }
@@ -114,6 +134,37 @@
       "score": 0,
       "answers": {},
       "date": "2025-01-01T22:11:31.252Z"
+    },
+    {
+      "id": "77ba",
+      "studentName": "vv",
+      "score": 50,
+      "answers": {
+        "1735770942681": "como estas",
+        "1735769395705": "te elijo"
+      },
+      "date": "2025-01-01T22:41:03.833Z"
+    },
+    {
+      "id": "6abd",
+      "studentName": "ddd",
+      "score": 100,
+      "answers": {
+        "1735770942681": "como estas?",
+        "1735769395705": "te elijo"
+      },
+      "date": "2025-01-01T22:41:28.589Z"
+    },
+    {
+      "id": "273e",
+      "studentName": "ssssssss",
+      "score": 100,
+      "answers": {
+        "1735769395705": "te elijo",
+        "1735770942681": "como estas?",
+        "1735771597048": "good mornings"
+      },
+      "date": "2025-01-01T22:48:50.047Z"
     }
   ]
 }

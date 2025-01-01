@@ -16,7 +16,7 @@ const TestApp = ({ onBack }) => {
       .then((res) => res.json())
       .then((data) => {
         // Extract questions from the nested structure
-        const questionsArray = data?.questions?.[0]?.questions || [];
+        const questionsArray = data?.questions?.questions[0]?.questions || [];
         console.log("Extracted questions:", questionsArray);
         setQuestions(questionsArray);
       })
