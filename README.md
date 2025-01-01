@@ -4,6 +4,7 @@ TestIngles es una aplicación interactiva diseñada para evaluar y registrar el 
 La plataforma ofrece un sistema flexible de evaluación basado en preguntas de diferentes tipos, adaptándose a las necesidades de los usuarios y 
 proporcionando una experiencia amigable e intuitiva.
 
+![image](https://github.com/user-attachments/assets/8d0e4325-998d-43f1-a898-2c6ce5478214)
 *Accede al proyecto aquí -> https://*
 
 ## Propósito del Proyecto
