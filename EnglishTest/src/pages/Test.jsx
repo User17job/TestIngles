@@ -15,15 +15,10 @@ const TestApp = ({ onBack }) => {
     fetch("http://localhost:3001/questions/")
       .then((res) => res.json())
       .then((data) => {
-        // Flatten and clean the questions array
-        const flattenedQuestions = data.reduce((acc, item) => {
-          if (item.questions) {
-            const nestedQuestions = item.questions[0]?.questions || [];
-            return [...acc, ...nestedQuestions];
-          }
-          return [...acc, item];
-        }, []);
-        setQuestions(flattenedQuestions);
+        // Extract questions from the nested structure
+        const questionsArray = data?.questions?.[0]?.questions || [];
+        console.log("Extracted questions:", questionsArray);
+        setQuestions(questionsArray);
       })
       .catch((error) => {
         console.error("Error al obtener preguntas:", error);
@@ -38,7 +33,7 @@ const TestApp = ({ onBack }) => {
     );
 
     questions.forEach((q) => {
-      const userAnswer = answers[q.id];
+      const userAnswer = answers[q.id || q.question]; // Fallback to question text if no ID
       if (!userAnswer) return;
 
       switch (q.type) {
@@ -66,7 +61,7 @@ const TestApp = ({ onBack }) => {
 
         case "boolean":
           const boolAnswer = userAnswer === "true";
-          if (boolAnswer === q.correct) {
+          if (boolAnswer === (q.correct === "true")) {
             totalScore += q.points || 0;
           }
           break;
@@ -102,8 +97,9 @@ const TestApp = ({ onBack }) => {
       alert("Error al guardar los resultados");
     }
   };
-
   const renderQuestion = (q) => {
+    const questionId = q.id || q.question; // Use question text as fallback ID
+
     switch (q.type) {
       case "fillInBlanks":
         const parts = q.question.split("___");
@@ -117,12 +113,15 @@ const TestApp = ({ onBack }) => {
                     <input
                       type="text"
                       className="border-b-2 border-blue-500 w-24 text-center px-2 py-1"
+                      value={(answers[questionId] || "").split(",")[i] || ""}
                       onChange={(e) => {
-                        const currentAnswers = (answers[q.id] || "").split(",");
+                        const currentAnswers = (
+                          answers[questionId] || ""
+                        ).split(",");
                         currentAnswers[i] = e.target.value;
                         setAnswers({
                           ...answers,
-                          [q.id]: currentAnswers.join(","),
+                          [questionId]: currentAnswers.join(","),
                         });
                       }}
                     />
@@ -132,7 +131,7 @@ const TestApp = ({ onBack }) => {
             </div>
           </div>
         );
-
+      // ... rest of the cases remain the same but update [q.id] to [questionId]
       case "arrange":
         return (
           <div className="space-y-4">
@@ -141,11 +140,11 @@ const TestApp = ({ onBack }) => {
                 <button
                   key={i}
                   onClick={() => {
-                    const currentAnswer = answers[q.id] || "";
+                    const currentAnswer = answers[questionId] || "";
                     const newAnswer = currentAnswer
                       ? `${currentAnswer} ${word}`
                       : word;
-                    setAnswers({ ...answers, [q.id]: newAnswer });
+                    setAnswers({ ...answers, [questionId]: newAnswer });
                   }}
                   className="px-3 py-2 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors"
                 >
@@ -156,13 +155,13 @@ const TestApp = ({ onBack }) => {
             <div className="space-y-2">
               <input
                 type="text"
-                value={answers[q.id] || ""}
+                value={answers[questionId] || ""}
                 readOnly
                 className="w-full p-2 border rounded bg-gray-50"
                 placeholder="Tu frase ordenada..."
               />
               <button
-                onClick={() => setAnswers({ ...answers, [q.id]: "" })}
+                onClick={() => setAnswers({ ...answers, [questionId]: "" })}
                 className="text-sm text-blue-600 hover:text-blue-700"
               >
                 Limpiar respuesta
@@ -170,7 +169,6 @@ const TestApp = ({ onBack }) => {
             </div>
           </div>
         );
-
       case "multiple":
         return (
           <div className="space-y-2">

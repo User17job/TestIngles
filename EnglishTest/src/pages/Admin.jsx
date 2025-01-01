@@ -34,28 +34,32 @@ const Admin = ({ onBack }) => {
     }
   };
 
+  // const loadQuestions = async () => {
+  //   try {
+  //     const data = await api.getQuestions();
+
+  //     // Accede al nivel correcto de preguntas
+  //     const questionsArray =
+  //       data.questions.flatMap((item) => item.questions || []) || [];
+
+  //     console.log("Preguntas procesadas:", questionsArray);
+
+  //     setQuestions(questionsArray);
+  //   } catch (error) {
+  //     console.error("Error al cargar preguntas:", error);
+  //     showAlert("Error al cargar preguntas");
+  //   }
+  // };
   const loadQuestions = async () => {
     try {
       const data = await api.getQuestions();
-      let questionsArray = [];
-
-      // Procesar preguntas directas (sin anidación)
-      const directQuestions = data.filter((item) => !item.questions);
-
-      // Procesar preguntas anidadas
-      const nestedQuestions = data
-        .filter((item) => item.questions)
-        .flatMap((item) =>
-          item.questions.flatMap((subItem) => subItem.questions || [])
-        );
-
-      questionsArray = [...directQuestions, ...nestedQuestions];
+      const questionsArray = data?.questions?.[0]?.questions || [];
       setQuestions(questionsArray);
     } catch (error) {
+      console.error("Error al cargar preguntas:", error);
       showAlert("Error al cargar preguntas");
     }
   };
-
   const getDefaultOptions = (type) => {
     switch (type) {
       case "multiple":
@@ -123,24 +127,60 @@ const Admin = ({ onBack }) => {
 
   const validateQuestions = () => {
     return questions.every((q) => {
-      if (!q.question.trim()) return false;
+      if (!q.question?.trim()) return false; // Verifica que la pregunta no esté vacía
 
       switch (q.type) {
         case "multiple":
-          return q.options.every((opt) => opt.trim()) && q.correct.trim();
+          return (
+            q.options.every((opt) => opt?.trim()) &&
+            typeof q.correct === "string" &&
+            q.correct.trim()
+          );
         case "fillInBlanks":
-          return q.correct.trim() && q.question.includes("___");
+          return (
+            typeof q.correct === "string" &&
+            q.correct.trim() &&
+            q.question.includes("___")
+          );
         case "arrange":
-          return q.options.length > 0 && q.correct.trim();
+          return (
+            q.options.length > 0 &&
+            typeof q.correct === "string" &&
+            q.correct.trim()
+          );
         case "translate":
         case "boolean":
-          return q.correct.trim();
+          return typeof q.correct === "string" && q.correct.trim();
         default:
           return false;
       }
     });
   };
 
+  // const saveQuestions = async () => {
+  //   if (!validateQuestions()) {
+  //     showAlert("Por favor complete todos los campos requeridos");
+  //     return;
+  //   }
+
+  //   try {
+  //     const formattedQuestions = questions.map((q) => ({
+  //       ...q,
+  //       correct:
+  //         q.type === "boolean"
+  //           ? String(q.correct) // Asegura que sea una cadena
+  //           : q.correct,
+  //     }));
+
+  //     await api.updateQuestions([
+  //       { id: "2816", questions: formattedQuestions },
+  //     ]);
+  //     await loadQuestions();
+  //     showAlert("Cambios guardados exitosamente", "success");
+  //   } catch (error) {
+  //     showAlert("Error al guardar los cambios");
+  //   }
+  // };
   const saveQuestions = async () => {
     if (!validateQuestions()) {
       showAlert("Por favor complete todos los campos requeridos");
@@ -148,21 +188,28 @@ const Admin = ({ onBack }) => {
     }
 
     try {
-      const formattedQuestions = questions.map((q) => ({
-        ...q,
-        correct: q.type === "boolean" ? q.correct === "true" : q.correct,
-      }));
+      const formattedQuestions = {
+        questions: [
+          {
+            id: "2816",
+            questions: questions.map((q) => ({
+              ...q,
+              correct:
+                q.type === "boolean" ? String(q.correct) === "true" : q.correct,
+              points: q.points || 5, // Ensure points are set
+            })),
+          },
+        ],
+      };
 
-      await api.updateQuestions([
-        { id: "2816", questions: formattedQuestions },
-      ]);
+      await api.updateQuestions(formattedQuestions);
       await loadQuestions();
       showAlert("Cambios guardados exitosamente", "success");
     } catch (error) {
-      showAlert("Error al guardar los cambios");
+      console.error("Error saving questions:", error);
+      showAlert("Error al guardar los cambios: " + error.message);
     }
   };
-
   const renderQuestionFields = (q, index) => {
     switch (q.type) {
       case "fillInBlanks":
@@ -233,7 +280,7 @@ const Admin = ({ onBack }) => {
               <div className="space-y-2">
                 {q.options.map((opt, optIndex) => (
                   <input
-                    key={optIndex}
+                    key={`${q.id || index}-option-${optIndex}`}
                     type="text"
                     value={opt}
                     onChange={(e) => {
@@ -348,7 +395,6 @@ const Admin = ({ onBack }) => {
           return null;
       }
     };
-
     return (
       <div className="space-y-4">
         <div className="flex justify-between items-center mb-4">
@@ -366,7 +412,7 @@ const Admin = ({ onBack }) => {
 
         {questions.map((question) => (
           <div
-            key={question.id}
+            key={question.id || `list-question-${question.question}`}
             className="p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow"
           >
             <div className="flex justify-between items-start">
@@ -497,7 +543,10 @@ const Admin = ({ onBack }) => {
           {tab === "questions" && (
             <div className="space-y-6">
               {questions.map((q, index) => (
-                <div key={q.id} className="p-4 bg-white rounded-lg shadow">
+                <div
+                  key={q.id || `question-${index}`}
+                  className="p-4 bg-white rounded-lg shadow"
+                >
                   <div className="flex justify-between mb-4">
                     <select
                       value={q.type}

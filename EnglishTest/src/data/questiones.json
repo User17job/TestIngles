@@ -1,0 +1,307 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "type": "multiple",
+      "question": "¿Qué significa \"hello\" en español?",
+      "options": [
+        "hola",
+        "adiós",
+        "gracias"
+      ],
+      "correct": "hola",
+      "points": 5
+    },
+    {
+      "id": "2",
+      "type": "multiple",
+      "question": "¿Cómo se dice \"water\" en español?",
+      "options": [
+        "agua",
+        "aire",
+        "fuego"
+      ],
+      "correct": "agua",
+      "points": 5
+    },
+    {
+      "id": "3",
+      "type": "multiple",
+      "question": "¿Qué significa \"good morning\"?",
+      "options": [
+        "buenos días",
+        "buenas tardes",
+        "buenas noches"
+      ],
+      "correct": "buenos días",
+      "points": 5
+    },
+    {
+      "id": "4",
+      "type": "translate",
+      "question": "Traduce la palabra \"book\" al español:",
+      "options": [],
+      "correct": "libro",
+      "points": 5
+    },
+    {
+      "id": "6",
+      "type": "translate",
+      "question": "Traduce la palabra \"school\" al español:",
+      "options": [],
+      "correct": "escuela",
+      "points": 5
+    },
+    {
+      "id": "7",
+      "type": "boolean",
+      "question": "\"She\" es el pronombre personal para referirse a una mujer",
+      "options": [],
+      "correct": true,
+      "points": 5
+    },
+    {
+      "id": "8",
+      "type": "boolean",
+      "question": "\"We\" significa \"yo\" en español",
+      "options": [],
+      "correct": false,
+      "points": 5
+    },
+    {
+      "id": "9",
+      "type": "boolean",
+      "question": "\"Good night\" se usa para saludar por la mañana",
+      "options": [],
+      "correct": false,
+      "points": 5
+    },
+    {
+      "id": "10",
+      "type": "fillInBlanks",
+      "question": "I ___ a student",
+      "options": [],
+      "correct": "am",
+      "points": 5
+    },
+    {
+      "id": "11",
+      "type": "fillInBlanks",
+      "question": "She ___ to school",
+      "options": [],
+      "correct": "goes",
+      "points": 5
+    },
+    {
+      "id": "12",
+      "type": "fillInBlanks",
+      "question": "They ___ playing soccer",
+      "options": [],
+      "correct": "are",
+      "points": 5
+    },
+    {
+      "id": "13",
+      "type": "arrange",
+      "question": "Ordena las palabras para formar una oración correcta:",
+      "options": [
+        "am",
+        "I",
+        "student",
+        "a"
+      ],
+      "correct": "I am a student",
+      "points": 5
+    },
+    {
+      "id": "14",
+      "type": "arrange",
+      "question": "Ordena las palabras para formar una oración correcta:",
+      "options": [
+        "like",
+        "I",
+        "pizza"
+      ],
+      "correct": "I like pizza",
+      "points": 5
+    },
+    {
+      "id": "15",
+      "type": "multiple",
+      "question": "¿Qué significa \"teacher\" en español?",
+      "options": [
+        "profesor",
+        "estudiante",
+        "director"
+      ],
+      "correct": "profesor",
+      "points": 5
+    },
+    {
+      "id": "16",
+      "type": "multiple",
+      "question": "¿Cómo se dice \"dog\" en español?",
+      "options": [
+        "perro",
+        "gato",
+        "pájaro"
+      ],
+      "correct": "perro",
+      "points": 5
+    },
+    {
+      "id": "17",
+      "type": "translate",
+      "question": "Traduce la palabra \"house\" al español:",
+      "options": [],
+      "correct": "casa",
+      "points": 5
+    },
+    {
+      "id": "18",
+      "type": "translate",
+      "question": "Traduce la palabra \"table\" al español:",
+      "options": [],
+      "correct": "mesa",
+      "points": 5
+    },
+    {
+      "id": "19",
+      "type": "boolean",
+      "question": "\"You\" puede significar tanto \"tú\" como \"ustedes\"",
+      "options": [],
+      "correct": true,
+      "points": 5
+    },
+    {
+      "id": "20",
+      "type": "boolean",
+      "question": "\"It\" se usa para referirse a personas",
+      "options": [],
+      "correct": false,
+      "points": 5
+    },
+    {
+      "id": "21",
+      "type": "fillInBlanks",
+      "question": "The book ___ on the table",
+      "options": [],
+      "correct": "is",
+      "points": 5
+    },
+    {
+      "id": "22",
+      "type": "fillInBlanks",
+      "question": "We ___ friends",
+      "options": [],
+      "correct": "are",
+      "points": 5
+    },
+    {
+      "id": "23",
+      "type": "arrange",
+      "question": "Ordena las palabras para formar una oración correcta:",
+      "options": [
+        "she",
+        "happy",
+        "is"
+      ],
+      "correct": "she is happy",
+      "points": 5
+    },
+    {
+      "id": "24",
+      "type": "arrange",
+      "question": "Ordena las palabras para formar una oración correcta:",
+      "options": [
+        "have",
+        "pencil",
+        "I",
+        "a"
+      ],
+      "correct": "I have a pencil",
+      "points": 5
+    },
+    {
+      "id": "25",
+      "type": "multiple",
+      "question": "¿Qué significa \"thank you\" en español?",
+      "options": [
+        "gracias",
+        "por favor",
+        "de nada"
+      ],
+      "correct": "gracias",
+      "points": 5
+    }
+  ],
+  "results": [
+    {
+      "id": "842c",
+      "studentName": "jose",
+      "score": 66,
+      "answers": {
+        "1735572978355": "is",
+        "1735572117767": "the phone don't have internet",
+        "1735399185050": "casa",
+        "1735390473096": "false",
+        "1735390399971": "true",
+        "1735390374935": "chair",
+        "1735390350425": "car",
+        "1735390237613": "plane",
+        "1735390204937": "cat"
+      },
+      "date": "2024-12-30T15:46:16.658Z"
+    },
+    {
+      "id": "5d74",
+      "studentName": "José ángel ",
+      "score": 100,
+      "answers": {
+        "1735390204937": "cat",
+        "1735390237613": "plane",
+        "1735390350425": "car",
+        "1735390374935": "chair",
+        "1735390399971": "true",
+        "1735390473096": "false",
+        "1735399185050": "casa",
+        "1735572117767": "the phone don't have internet",
+        "1735572978355": "is"
+      },
+      "date": "2024-12-30T15:51:45.660Z"
+    },
+    {
+      "id": "a792",
+      "studentName": "Ramphys",
+      "score": 92,
+      "answers": {
+        "1": "hola",
+        "2": "agua",
+        "3": "buenos días",
+        "4": "libro",
+        "5": "lapiz",
+        "6": "escuela",
+        "7": "true",
+        "8": "false",
+        "9": "false",
+        "10": "am",
+        "11": "go",
+        "12": "are",
+        "13": "I am a student",
+        "14": "I like pizza",
+        "15": "profesor",
+        "16": "perro",
+        "17": "casa",
+        "18": "mesa",
+        "19": "true",
+        "20": "false",
+        "21": "is",
+        "22": "are",
+        "23": "she is happy",
+        "24": "I have a pencil",
+        "25": "gracias"
+      },
+      "date": "2024-12-31T16:33:06.725Z"
+    }
+  ]
+}

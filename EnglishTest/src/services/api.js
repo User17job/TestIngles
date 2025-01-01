@@ -4,16 +4,24 @@ export const api = {
   getQuestions: () => fetch(`${API_URL}/questions`).then((res) => res.json()),
 
   getQuestion: async (id) => {
-    const response = await fetch(`/api/questions/${id}`);
+    const response = await fetch(`${API_URL}/questions/${id}`);
     if (!response.ok) throw new Error("Failed to fetch question");
+
     return response.json();
   },
 
   updateQuestions: (questions) =>
     fetch(`${API_URL}/questions`, {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ questions }),
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `Error al actualizar las preguntas: ${response.status}`
+        );
+      }
+      return response.json();
     }),
 
   deleteQuestion: (questionId) =>
@@ -29,12 +37,4 @@ export const api = {
     }),
 
   getResults: () => fetch(`${API_URL}/results`).then((res) => res.json()),
-
-  // Nuevo método para borrar múltiples preguntas
-  deleteQuestions: (questionIds) =>
-    fetch(`${API_URL}/questions/batch`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ids: questionIds }),
-    }),
 };
