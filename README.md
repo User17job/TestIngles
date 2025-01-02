@@ -15,7 +15,8 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 - Evaluaciones Dinámicas: Los estudiantes responden preguntas de diversos tipos:
 
 - Verificacion de nivel basico en el admin.
-![image](https://github.com/user-attachments/assets/abd6e454-aa62-47bf-ac06-8979f6fbafb9)
+![image](https://github.com/user-attachments/assets/68e42f1e-b487-4f80-9baf-4264b04cd7c4)
+
 
 - Admin para agregar y manejar las preguntas.
  ![image](https://github.com/user-attachments/assets/fb8da9e0-3241-46bf-a383-5590319501dd)
