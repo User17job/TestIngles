@@ -26,7 +26,8 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 - Selección Múltiple: Elige la respuesta correcta entre varias opciones.
 - Verdadero o Falso: Responde preguntas booleanas de forma precisa.
 - Traducción: Traduce frases o palabras específicas.
-![image](https://github.com/user-attachments/assets/b19f7c9d-4aba-41fe-831f-6cf3c5292082)
+![image](https://github.com/user-attachments/assets/ce06006e-4e50-4cef-94c5-24e429f001d9)
+
 
   
 - Cálculo Automático de Puntuación: El sistema calcula el puntaje basado en la precisión de las respuestas y la dificultad de las preguntas.
