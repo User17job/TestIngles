@@ -113,7 +113,7 @@ const Admin = ({ onBack }) => {
 
   const validateQuestions = () => {
     return questions.every((q) => {
-      if (!q.question?.trim()) return false; // Verifica que la pregunta no esté vacía
+      if (!q.question?.trim()) return false;
 
       switch (q.type) {
         case "multiple":
@@ -158,7 +158,7 @@ const Admin = ({ onBack }) => {
               ...q,
               correct:
                 q.type === "boolean" ? String(q.correct) === "true" : q.correct,
-              points: q.points || 5, // Ensure points are set
+              points: q.points || 5,
             })),
           },
         ],
@@ -174,16 +174,21 @@ const Admin = ({ onBack }) => {
   };
 
   const renderQuestionFields = (q, index) => {
+    const inputBaseClass =
+      "w-full p-2 border rounded focus:ring-2 focus:ring-blue-400 focus:outline-none transition-shadow";
+    const textAreaClass = `${inputBaseClass} resize-none`;
+    const selectClass = `${inputBaseClass} bg-white`;
+
     switch (q.type) {
       case "fillInBlanks":
         return (
-          <div className="space-y-2">
+          <div className="space-y-4 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
             <textarea
               value={q.question}
               onChange={(e) =>
                 updateQuestion(index, "question", e.target.value)
               }
-              className="w-full p-2 border rounded"
+              className={`${textAreaClass}`}
               placeholder="Texto con ___ para espacios en blanco"
               rows={3}
             />
@@ -191,21 +196,21 @@ const Admin = ({ onBack }) => {
               type="text"
               value={q.correct}
               onChange={(e) => updateQuestion(index, "correct", e.target.value)}
-              className="w-full p-2 border rounded"
+              className={inputBaseClass}
               placeholder="Respuestas separadas por coma (ej: is,are,were)"
             />
           </div>
         );
       case "arrange":
         return (
-          <div className="space-y-2">
+          <div className="space-y-4 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
             <input
               type="text"
               value={q.question}
               onChange={(e) =>
                 updateQuestion(index, "question", e.target.value)
               }
-              className="w-full p-2 border rounded"
+              className={inputBaseClass}
               placeholder="Instrucción para ordenar palabras"
             />
             <input
@@ -215,28 +220,28 @@ const Admin = ({ onBack }) => {
                 const words = e.target.value.split(",").map((w) => w.trim());
                 updateQuestion(index, "options", words);
               }}
-              className="w-full p-2 border rounded"
+              className={inputBaseClass}
               placeholder="Palabras separadas por coma"
             />
             <input
               type="text"
               value={q.correct}
               onChange={(e) => updateQuestion(index, "correct", e.target.value)}
-              className="w-full p-2 border rounded"
+              className={inputBaseClass}
               placeholder="Orden correcto (frase completa)"
             />
           </div>
         );
       default:
         return (
-          <>
+          <div className="space-y-4 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
             <input
               type="text"
               value={q.question}
               onChange={(e) =>
                 updateQuestion(index, "question", e.target.value)
               }
-              className="w-full p-2 border rounded mb-4"
+              className={`${inputBaseClass}`}
               placeholder="Pregunta"
             />
             {q.type === "multiple" && (
@@ -251,7 +256,7 @@ const Admin = ({ onBack }) => {
                       newOptions[optIndex] = e.target.value;
                       updateQuestion(index, "options", newOptions);
                     }}
-                    className="w-full p-2 border rounded"
+                    className={inputBaseClass}
                     placeholder={`Opción ${optIndex + 1}`}
                   />
                 ))}
@@ -261,7 +266,7 @@ const Admin = ({ onBack }) => {
                   onChange={(e) =>
                     updateQuestion(index, "correct", e.target.value)
                   }
-                  className="w-full p-2 border rounded"
+                  className={inputBaseClass}
                   placeholder="Respuesta correcta"
                 />
               </div>
@@ -272,7 +277,7 @@ const Admin = ({ onBack }) => {
                 onChange={(e) =>
                   updateQuestion(index, "correct", e.target.value)
                 }
-                className="w-full p-2 border rounded"
+                className={selectClass}
               >
                 <option value="true">Verdadero</option>
                 <option value="false">Falso</option>
@@ -285,11 +290,11 @@ const Admin = ({ onBack }) => {
                 onChange={(e) =>
                   updateQuestion(index, "correct", e.target.value)
                 }
-                className="w-full p-2 border rounded"
+                className={inputBaseClass}
                 placeholder="Traducción correcta"
               />
             )}
-          </>
+          </div>
         );
     }
   };
@@ -358,6 +363,7 @@ const Admin = ({ onBack }) => {
           return null;
       }
     };
+
     return (
       <div className="space-y-4">
         <div className="flex justify-between items-center mb-4">
@@ -367,7 +373,7 @@ const Admin = ({ onBack }) => {
               setEditMode(true);
               setTab("questions");
             }}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
           >
             Editar Preguntas
           </button>
@@ -376,7 +382,7 @@ const Admin = ({ onBack }) => {
         {questions.map((question) => (
           <div
             key={question.id || `list-question-${question.question}`}
-            className="p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow"
+            className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg relative group hover:scale-105 transition-transform duration-300"
           >
             <div className="flex justify-between items-start">
               <div className="flex-1">
@@ -401,7 +407,7 @@ const Admin = ({ onBack }) => {
                     questions.findIndex((q) => q.id === question.id)
                   )
                 }
-                className="ml-4 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-full transition-colors"
+                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-2 bg-red-500 text-white rounded-full shadow hover:bg-red-600 transition-colors"
                 title="Eliminar pregunta"
               >
                 <Trash size={20} />
@@ -413,22 +419,51 @@ const Admin = ({ onBack }) => {
     );
   };
 
+  const handleDeleteResult = async (id) => {
+    if (
+      window.confirm("¿Estás seguro de que deseas eliminar este resultado?")
+    ) {
+      try {
+        await api.deleteResult(id);
+        setResults((prevResults) =>
+          prevResults.filter((result) => result.id !== id)
+        );
+        showAlert("Resultado eliminado correctamente", "success");
+      } catch (error) {
+        console.error("Error al eliminar el resultado:", error);
+        showAlert("Error al eliminar el resultado");
+      }
+    }
+  };
+  // tab === "questions"
   const renderResults = () => (
     <div className="space-y-4">
       {results && results.length > 0 ? (
         results.map((result, index) => (
-          <div key={index} className="p-4 bg-white rounded-lg shadow">
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="font-bold">
+          <div
+            key={index}
+            className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg relative group hover:scale-105 transition-transform duration-300"
+          >
+            <div className="absolute top-2 right-2 hidden group-hover:block">
+              <button
+                onClick={() => handleDeleteResult(result.id)}
+                className="p-2 bg-red-500 text-white rounded-full shadow hover:bg-red-600 transition-colors"
+                title="Eliminar"
+              >
+                <Trash size={18} />
+              </button>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="font-semibold text-blue-900 text-lg">
                 {result?.studentName || "Estudiante sin nombre"}
               </h3>
-              <span className="text-lg">
+              <span className="text-xl font-bold text-blue-600">
                 {typeof result?.score === "number"
                   ? `${result.score.toFixed(1)}%`
                   : "N/A"}
               </span>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 italic">
               Fecha:{" "}
               {result?.date
                 ? new Date(result.date).toLocaleString()
@@ -455,7 +490,7 @@ const Admin = ({ onBack }) => {
 
       {alertMessage && (
         <div
-          className={`fixed top-4 right-4 p-4 rounded-lg shadow-lg ${
+          className={`fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
             alertType === "success"
               ? "bg-green-100 text-green-800 border border-green-200"
               : "bg-red-100 text-red-800 border border-red-200"
@@ -509,7 +544,7 @@ const Admin = ({ onBack }) => {
               {questions.map((q, index) => (
                 <div
                   key={q.id || `question-${index}`}
-                  className="p-4 bg-white rounded-lg shadow"
+                  className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg relative group hover:scale-105 transition-transform duration-300"
                 >
                   <div className="flex justify-between mb-4">
                     <select
@@ -517,7 +552,7 @@ const Admin = ({ onBack }) => {
                       onChange={(e) =>
                         updateQuestion(index, "type", e.target.value)
                       }
-                      className="p-2 border rounded"
+                      className="p-2 border rounded-lg bg-white shadow-md focus:ring-2 focus:ring-blue-400 focus:outline-none transition-shadow"
                     >
                       <option value="multiple">Opción Múltiple</option>
                       <option value="translate">Traducción</option>
@@ -527,7 +562,7 @@ const Admin = ({ onBack }) => {
                     </select>
                     <button
                       onClick={() => removeQuestion(index)}
-                      className="text-red-500 hover:text-red-700"
+                      className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-2 bg-red-500 text-white rounded-full shadow hover:bg-red-600 transition-colors"
                     >
                       <Trash size={20} />
                     </button>
@@ -540,14 +575,14 @@ const Admin = ({ onBack }) => {
               <div className="flex gap-4">
                 <button
                   onClick={addQuestion}
-                  className="flex-1 bg-blue-500 text-white p-2 rounded hover:bg-blue-600 flex items-center justify-center gap-2"
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white p-2 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2"
                 >
                   <Plus size={20} />
                   Agregar Pregunta
                 </button>
                 <button
                   onClick={saveQuestions}
-                  className="flex-1 bg-green-500 text-white p-2 rounded hover:bg-green-600 flex items-center justify-center gap-2"
+                  className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white p-2 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2"
                 >
                   <Save size={20} />
                   Guardar Cambios

@@ -6,35 +6,249 @@
           "id": "2816",
           "questions": [
             {
-              "id": "1735769395705",
+              "id": "q1",
               "type": "multiple",
-              "question": "seleccióname a mi para ser tu amigo",
+              "question": "Choose the correct article: '___ apple is red.'",
               "options": [
-                "te elijo",
-                "te rechaso ",
-                "tu"
+                "An",
+                "A",
+                "the",
+                "No article"
               ],
-              "correct": "te elijo",
+              "correct": "the",
               "points": 5
             },
             {
-              "id": "1735770942681",
-              "type": "translate",
-              "question": "como estas?",
+              "id": "q2",
+              "type": "fillInBlanks",
+              "question": "Complete the sentence: I ___ to school every day.",
               "options": [],
-              "correct": "como estas?",
+              "correct": "go",
               "points": 5
             },
             {
-              "id": "1735771597048",
-              "type": "multiple",
-              "question": "eyeeeneue eueen eebuen dia",
+              "id": "q3",
+              "type": "translate",
+              "question": "Translate 'how are you' to Spanish:",
+              "options": [],
+              "correct": "cómo estás",
+              "points": 5
+            },
+            {
+              "id": "q4",
+              "type": "boolean",
+              "question": "'A lion is a mammal.'",
+              "options": [],
+              "correct": true,
+              "points": 5
+            },
+            {
+              "id": "q5",
+              "type": "arrange",
+              "question": "Arrange the words to form a question: '___ ___ ___ ___ today?'",
               "options": [
-                "good mornings",
-                "good",
-                "mornings"
+                "are",
+                "you",
+                "feeling",
+                "how"
               ],
-              "correct": "good mornings",
+              "correct": "how are you feeling",
+              "points": 5
+            },
+            {
+              "id": "q6",
+              "type": "multiple",
+              "question": "Choose the correct plural form: 'One child, two ___.'",
+              "options": [
+                "childs",
+                "children",
+                "childrens",
+                "child"
+              ],
+              "correct": "children",
+              "points": 5
+            },
+            {
+              "id": "q7",
+              "type": "fillInBlanks",
+              "question": "Complete the sentence: She ___ very happy because she ___ a gift.",
+              "options": [],
+              "correct": "is,has",
+              "points": 5
+            },
+            {
+              "id": "q8",
+              "type": "translate",
+              "question": "Translate 'I love you' to Spanish:",
+              "options": [],
+              "correct": "te amo",
+              "points": 5
+            },
+            {
+              "id": "q9",
+              "type": "boolean",
+              "question": "'A table has four legs.'",
+              "options": [],
+              "correct": true,
+              "points": 5
+            },
+            {
+              "id": "q10",
+              "type": "arrange",
+              "question": "Arrange the words to form a sentence: '___ ___ ___ a new book.'",
+              "options": [
+                "I",
+                "have",
+                "bought"
+              ],
+              "correct": "I have bought",
+              "points": 5
+            },
+            {
+              "id": "q11",
+              "type": "multiple",
+              "question": "Choose the correct verb: 'She ___ to the gym every morning.'",
+              "options": [
+                "goes",
+                "go",
+                "gone",
+                "going"
+              ],
+              "correct": "goes",
+              "points": 5
+            },
+            {
+              "id": "q12",
+              "type": "fillInBlanks",
+              "question": "Complete the sentence: 'The sun ___ in the east.'",
+              "options": [],
+              "correct": "rises",
+              "points": 5
+            },
+            {
+              "id": "q13",
+              "type": "translate",
+              "question": "Translate 'good night' to Spanish:",
+              "options": [],
+              "correct": "buenas noches",
+              "points": 5
+            },
+            {
+              "id": "q14",
+              "type": "boolean",
+              "question": "'Water boils at 100 degrees Celsius.'",
+              "options": [],
+              "correct": true,
+              "points": 5
+            },
+            {
+              "id": "q15",
+              "type": "arrange",
+              "question": "Arrange the words to form a question: '___ ___ ___ live?'",
+              "options": [
+                "where",
+                "do",
+                "you"
+              ],
+              "correct": "where do you",
+              "points": 5
+            },
+            {
+              "id": "q16",
+              "type": "multiple",
+              "question": "Choose the correct preposition: 'He is sitting ___ the chair.'",
+              "options": [
+                "on",
+                "in",
+                "at",
+                "above"
+              ],
+              "correct": "on",
+              "points": 5
+            },
+            {
+              "id": "q17",
+              "type": "fillInBlanks",
+              "question": "Complete the sentence: 'We ___ to the park yesterday.'",
+              "options": [],
+              "correct": "went",
+              "points": 5
+            },
+            {
+              "id": "q18",
+              "type": "translate",
+              "question": "Translate 'thank you' to Spanish:",
+              "options": [],
+              "correct": "gracias",
+              "points": 5
+            },
+            {
+              "id": "q19",
+              "type": "boolean",
+              "question": "'The moon is a planet.'",
+              "options": [],
+              "correct": false,
+              "points": 5
+            },
+            {
+              "id": "q20",
+              "type": "arrange",
+              "question": "Arrange the words to form a sentence: '___ ___ ___ to the market.'",
+              "options": [
+                "She",
+                "goes",
+                "daily"
+              ],
+              "correct": "She goes daily",
+              "points": 5
+            },
+            {
+              "id": "q21",
+              "type": "multiple",
+              "question": "Choose the correct tense: 'They ___ football every weekend.'",
+              "options": [
+                "play",
+                "played",
+                "playing",
+                "plays"
+              ],
+              "correct": "play",
+              "points": 5
+            },
+            {
+              "id": "q22",
+              "type": "fillInBlanks",
+              "question": "Complete the sentence: 'I ___ a movie last night.'",
+              "options": [],
+              "correct": "watched",
+              "points": 5
+            },
+            {
+              "id": "q23",
+              "type": "translate",
+              "question": "Translate 'good morning' to Spanish:",
+              "options": [],
+              "correct": "buenos días",
+              "points": 5
+            },
+            {
+              "id": "q24",
+              "type": "boolean",
+              "question": "'A triangle has three sides.'",
+              "options": [],
+              "correct": true,
+              "points": 5
+            },
+            {
+              "id": "q25",
+              "type": "arrange",
+              "question": "Arrange the words to form a question: '___ ___ ___ from?'",
+              "options": [
+                "Where",
+                "you",
+                "are"
+              ],
+              "correct": "Where are you",
               "points": 5
             }
           ]
@@ -44,127 +258,70 @@
   },
   "results": [
     {
-      "id": "842c",
-      "studentName": "jose",
-      "score": 66,
-      "answers": {
-        "1735572978355": "is",
-        "1735572117767": "the phone don't have internet",
-        "1735399185050": "casa",
-        "1735390473096": "false",
-        "1735390399971": "true",
-        "1735390374935": "chair",
-        "1735390350425": "car",
-        "1735390237613": "plane",
-        "1735390204937": "cat"
-      },
-      "date": "2024-12-30T15:46:16.658Z"
-    },
-    {
-      "id": "5d74",
-      "studentName": "José ángel ",
-      "score": 100,
-      "answers": {
-        "1735390204937": "cat",
-        "1735390237613": "plane",
-        "1735390350425": "car",
-        "1735390374935": "chair",
-        "1735390399971": "true",
-        "1735390473096": "false",
-        "1735399185050": "casa",
-        "1735572117767": "the phone don't have internet",
-        "1735572978355": "is"
-      },
-      "date": "2024-12-30T15:51:45.660Z"
-    },
-    {
-      "id": "a792",
+      "id": "9cda",
       "studentName": "Ramphys",
-      "score": 92,
+      "score": 72,
       "answers": {
-        "1": "hola",
-        "2": "agua",
-        "3": "buenos días",
-        "4": "libro",
-        "5": "lapiz",
-        "6": "escuela",
-        "7": "true",
-        "8": "false",
-        "9": "false",
-        "10": "am",
-        "11": "go",
-        "12": "are",
-        "13": "I am a student",
-        "14": "I like pizza",
-        "15": "profesor",
-        "16": "perro",
-        "17": "casa",
-        "18": "mesa",
-        "19": "true",
-        "20": "false",
-        "21": "is",
-        "22": "are",
-        "23": "she is happy",
-        "24": "I have a pencil",
-        "25": "gracias"
-      },
-      "date": "2024-12-31T16:33:06.725Z"
-    },
-    {
-      "id": "9b64",
-      "studentName": "ccc",
-      "score": 90,
-      "answers": {
-        "q1": "I am",
-        "q2": "am,is",
-        "q3": "buenos días ",
+        "q1": "The",
+        "q2": "go",
+        "q3": "como estas ",
         "q4": "true",
-        "q5": "she is happy today",
-        "q6": "in",
-        "q7": "have,has",
-        "q8": "gracias",
-        "q9": "false",
-        "q10": "he likes to eat pizza"
+        "q5": "how are you feeling",
+        "q6": "children",
+        "q7": "is,has",
+        "q8": "te amo",
+        "q9": "true",
+        "q10": "I have bought",
+        "q11": "goes",
+        "q12": "rise",
+        "q13": "buenas noches",
+        "q14": "true",
+        "q15": "where do you",
+        "q16": "at",
+        "q17": "go",
+        "q18": "gracias",
+        "q19": "false",
+        "q20": "She daily goes",
+        "q21": "played",
+        "q22": "watched ",
+        "q23": "buenos días ",
+        "q24": "true",
+        "q25": "Where are you"
       },
-      "date": "2025-01-01T22:08:02.805Z"
+      "date": "2025-01-02T00:37:41.241Z"
     },
     {
-      "id": "f690",
-      "studentName": "cccc",
-      "score": 0,
-      "answers": {},
-      "date": "2025-01-01T22:11:31.252Z"
-    },
-    {
-      "id": "77ba",
-      "studentName": "vv",
-      "score": 50,
+      "id": "69d1",
+      "studentName": "Randy ",
+      "score": 88,
       "answers": {
-        "1735770942681": "como estas",
-        "1735769395705": "te elijo"
+        "q1": "An",
+        "q2": "go",
+        "q3": "como estás?",
+        "q4": "true",
+        "q5": "how are you feeling",
+        "q6": "children",
+        "q7": "is,has",
+        "q8": "te amo",
+        "q9": "true",
+        "q10": "I have bought",
+        "q11": "goes",
+        "q12": "rises",
+        "q13": "buenas noches",
+        "q14": "true",
+        "q15": "where do you",
+        "q16": "on",
+        "q17": "went",
+        "q18": "gracias",
+        "q19": "false",
+        "q20": "She daily goes",
+        "q21": "play",
+        "q22": "watched",
+        "q23": "buenos días ",
+        "q24": "true",
+        "q25": "Where are you"
       },
-      "date": "2025-01-01T22:41:03.833Z"
-    },
-    {
-      "id": "6abd",
-      "studentName": "ddd",
-      "score": 100,
-      "answers": {
-        "1735770942681": "como estas?",
-        "1735769395705": "te elijo"
-      },
-      "date": "2025-01-01T22:41:28.589Z"
-    },
-    {
-      "id": "273e",
-      "studentName": "ssssssss",
-      "score": 100,
-      "answers": {
-        "1735769395705": "te elijo",
-        "1735770942681": "como estas?",
-        "1735771597048": "good mornings"
-      },
-      "date": "2025-01-01T22:48:50.047Z"
+      "date": "2025-01-02T00:44:26.395Z"
     }
   ]
 }

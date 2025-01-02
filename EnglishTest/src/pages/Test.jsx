@@ -25,6 +25,15 @@ const TestApp = ({ onBack }) => {
       });
   }, []);
 
+  const showAlert = (message, type = "error") => {
+    setAlertMessage(message);
+    setAlertType(type);
+    setTimeout(() => {
+      setAlertMessage("");
+      setAlertType("");
+    }, 3000);
+  };
+
   const calculateScore = () => {
     let totalScore = 0;
     let totalPossibleScore = questions.reduce(
@@ -79,7 +88,7 @@ const TestApp = ({ onBack }) => {
     return totalPossibleScore > 0 ? (totalScore / totalPossibleScore) * 100 : 0;
   };
 
-  // In handleSubmit:
+  // En handleSubmit:
   const handleSubmit = async () => {
     const finalScore = calculateScore();
     setScore(finalScore);
@@ -92,11 +101,13 @@ const TestApp = ({ onBack }) => {
         date: new Date(),
       });
       setCurrentStep("results");
+      showAlert("Resultados guardados correctamente", "success");
     } catch (error) {
       console.error("Error saving results:", error);
-      alert("Error al guardar los resultados");
+      showAlert("Error al guardar los resultados");
     }
   };
+
   const renderQuestion = (q) => {
     const questionId = q.id || q.question; // Use question text as fallback ID
 
@@ -131,7 +142,6 @@ const TestApp = ({ onBack }) => {
             </div>
           </div>
         );
-      // ... rest of the cases remain the same but update [q.id] to [questionId]
       case "arrange":
         return (
           <div className="space-y-4">
@@ -176,10 +186,10 @@ const TestApp = ({ onBack }) => {
               <button
                 key={opt}
                 onClick={() => setAnswers({ ...answers, [q.id]: opt })}
-                className={`w-full p-2 rounded ${
+                className={`w-full p-2 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${
                   answers[q.id] === opt
                     ? "bg-blue-500 text-white"
-                    : "bg-blue-100 hover:bg-blue-200"
+                    : "bg-gradient-to-r from-blue-50 to-blue-100 hover:bg-blue-200"
                 } transition-colors duration-300`}
               >
                 {opt}
@@ -204,10 +214,10 @@ const TestApp = ({ onBack }) => {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => setAnswers({ ...answers, [q.id]: "true" })}
-              className={`p-2 px-4 rounded ${
+              className={`p-2 px-4 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${
                 answers[q.id] === "true"
                   ? "bg-blue-500 text-white"
-                  : "bg-blue-100 hover:bg-blue-200"
+                  : "bg-gradient-to-r from-blue-50 to-blue-100 hover:bg-blue-200"
               } transition-colors duration-300`}
             >
               Verdadero
@@ -237,6 +247,18 @@ const TestApp = ({ onBack }) => {
       >
         <ArrowLeft size={20} /> Volver
       </button>
+
+      {alertMessage && (
+        <div
+          className={`fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+            alertType === "success"
+              ? "bg-green-100 text-green-800 border border-green-200"
+              : "bg-red-100 text-red-800 border border-red-200"
+          }`}
+        >
+          {alertMessage}
+        </div>
+      )}
 
       <Card className="max-w-2xl mx-auto">
         <CardHeader>
@@ -269,7 +291,7 @@ const TestApp = ({ onBack }) => {
               {questions.map((q, i) => (
                 <div
                   key={q.id}
-                  className="p-4 bg-white rounded-lg shadow animate-fadeIn"
+                  className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg transform transition duration-300 hover:scale-105"
                 >
                   <h3 className="font-bold mb-2">
                     {i + 1}. {q.question} ({q.points} puntos)
@@ -306,11 +328,10 @@ const TestApp = ({ onBack }) => {
                 <div className="space-y-4 text-left">
                   {questions.map((q) => (
                     <div
-                      key={q.id}
-                      className={`p-4 rounded ${
+                      className={`p-4 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${
                         String(answers[q.id]) === String(q.correct)
-                          ? "bg-green-100"
-                          : "bg-red-100"
+                          ? "bg-gradient-to-r from-green-50 to-green-100"
+                          : "bg-gradient-to-r from-red-50 to-red-100"
                       }`}
                     >
                       <p className="font-bold">{q.question}</p>

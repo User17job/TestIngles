@@ -37,4 +37,6 @@ export const api = {
     }),
 
   getResults: () => fetch(`${API_URL}/results`).then((res) => res.json()),
+
+  deleteResult: (id) => fetch(`${API_URL}/results/${id}`, { method: "DELETE" }),
 };
