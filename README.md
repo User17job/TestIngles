@@ -17,7 +17,8 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 - Interfaz de Bienvenida:
 - 
 - Verificacion de nivel basico en el admin.
-![image](https://github.com/user-attachments/assets/68e42f1e-b487-4f80-9baf-4264b04cd7c4)
+![image](https://github.com/user-attachments/assets/0b8b79ce-d9b6-4364-aa31-f37c4f3135cc)
+
 
 
 - Admin para agregar y manejar las preguntas.
