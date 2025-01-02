@@ -13,6 +13,11 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 
 ## Características Principales
 - Evaluaciones Dinámicas: Los estudiantes responden preguntas de diversos tipos:
+  
+- Interfaz de Bienvenida:
+![image](https://github.com/user-attachments/assets/35d73f43-cb47-4f12-a121-9dae0c9290b0)
+Solicita el nombre del estudiante para personalizar la experiencia.
+Inicia la evaluación tras ingresar el nombre.
 
 - Verificacion de nivel basico en el admin.
 ![image](https://github.com/user-attachments/assets/68e42f1e-b487-4f80-9baf-4264b04cd7c4)
@@ -29,12 +34,8 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 - Traducción: Traduce frases o palabras específicas.
 ![image](https://github.com/user-attachments/assets/ce06006e-4e50-4cef-94c5-24e429f001d9)
 
-
-  
 - Cálculo Automático de Puntuación: El sistema calcula el puntaje basado en la precisión de las respuestas y la dificultad de las preguntas.
 ![image](https://github.com/user-attachments/assets/fc4bbca4-0d8d-4acb-8608-10d2ae6603a8)
-
-
   
 - Resultados Detallados: Se muestra la puntuación final, junto con una sección opcional para revisar errores y comparar respuestas.
 - Persistencia de Datos: Los resultados de las evaluaciones se guardan en un backend conectado para análisis y seguimiento.
@@ -44,13 +45,6 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 - Backend: API conectada mediante fetch para obtener y guardar datos.
 - Diseño UI/UX: Utilización de Tailwind CSS para un diseño responsivo y atractivo.
 - Íconos: Paquete de íconos lucide-react para una interfaz moderna e intuitiva.
-- Funcionalidades del Sistema
-- Interfaz de Bienvenida:
-
-![image](https://github.com/user-attachments/assets/bb08c204-de37-4192-92ff-50c4abb836a6)
-Solicita el nombre del estudiante para personalizar la experiencia.
-Inicia la evaluación tras ingresar el nombre.
-
 
 ## Sistema de Evaluación:
 
