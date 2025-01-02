@@ -15,10 +15,7 @@ Además, se busca almacenar y analizar los resultados para identificar áreas de
 - Evaluaciones Dinámicas: Los estudiantes responden preguntas de diversos tipos:
   
 - Interfaz de Bienvenida:
-![image](https://github.com/user-attachments/assets/35d73f43-cb47-4f12-a121-9dae0c9290b0)
-Solicita el nombre del estudiante para personalizar la experiencia.
-Inicia la evaluación tras ingresar el nombre.
-
+- 
 - Verificacion de nivel basico en el admin.
 ![image](https://github.com/user-attachments/assets/68e42f1e-b487-4f80-9baf-4264b04cd7c4)
 
@@ -26,6 +23,9 @@ Inicia la evaluación tras ingresar el nombre.
 - Admin para agregar y manejar las preguntas.
  ![image](https://github.com/user-attachments/assets/fb8da9e0-3241-46bf-a383-5590319501dd)
 
+- Solicita el nombre del estudiante para personalizar la experiencia.
+Inicia la evaluación tras ingresar el nombre.
+![image](https://github.com/user-attachments/assets/e9ffedea-4ec0-4b21-aa53-836683c247d5)
 
 - Rellena los espacios en blanco: Completa frases con las palabras correctas.
 - Ordena palabras: Crea frases coherentes a partir de palabras desordenadas.
